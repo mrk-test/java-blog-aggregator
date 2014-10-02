@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ include file="../layouts/taglibs.jsp" %>
+<tilesx:useAttribute name="pageName"/>
 <!DOCTYPE html>
 <html>
 
@@ -43,8 +43,9 @@
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href='<spring:url value="/" />'>Home</a></li>
-						<li><a href="#">Link</a></li>
+						<li class="${pageName eq 'index' ? 'active' : ''}"><a href='<spring:url value="/" />'>Home</a></li>
+						<li class="${pageName eq 'users' ? 'active' : ''}"><a href='<spring:url value="/users" />'>Users</a></li>
+						<li class="${pageName eq 'link' ? 'active' : ''}"><a href="#">Link</a></li>
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->

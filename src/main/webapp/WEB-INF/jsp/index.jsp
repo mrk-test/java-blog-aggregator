@@ -1,6 +1,7 @@
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ include file="../layouts/taglibs.jsp" %>
 
 <tiles:insertDefinition name="common">
+	<tiles:putAttribute name="pageName" value="index" />
 	<tiles:putAttribute name="title" value="Java Blog Aggregator" />
 	<tiles:putAttribute name="body">
 
