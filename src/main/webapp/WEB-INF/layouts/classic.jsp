@@ -44,8 +44,16 @@
 					id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="${pageName eq 'index' ? 'active' : ''}"><a href='<spring:url value="/" />'>Home</a></li>
-						<li class="${pageName eq 'users' ? 'active' : ''}"><a href='<spring:url value="/users" />'>Users</a></li>
+						<security:authorize access="hasRole('ROLE_ADMIN')">
+							<li class="${pageName eq 'users' ? 'active' : ''}"><a href='<spring:url value="/users" />'>Users</a></li>
+						</security:authorize>
 						<li class="${pageName eq 'register' ? 'active' : ''}"><a href='<spring:url value="/register" />'>Register</a></li>
+						<security:authorize access="! isAuthenticated()">
+							<li class="${pageName eq 'login' ? 'active' : ''}"><a href='<spring:url value="login" />'>Login</a></li>
+						</security:authorize>
+						<security:authorize access="isAuthenticated()">
+							<li><a href='<spring:url value="/logout" />'>Logout</a></li>
+						</security:authorize>
 						<li class="${pageName eq 'link' ? 'active' : ''}"><a href="#">Link</a></li>
 					</ul>
 				</div>

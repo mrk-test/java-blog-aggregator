@@ -38,4 +38,6 @@
 	</bean>
 	
 	<jpa:repositories base-package="com.mnazareno.jba.repository" entity-manager-factory-ref="emf" />
+	
+	<import resource="security.xml"/>
 </beans>

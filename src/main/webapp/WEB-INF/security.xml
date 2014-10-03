@@ -1,0 +1,28 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security.xsd">
+
+	<http use-expressions="true">
+		<intercept-url pattern="/users/*" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/users*" access="hasRole('ROLE_ADMIN')" />
+		<form-login login-page="/login" />
+		<logout logout-url="/logout" />
+	</http>
+
+	<authentication-manager>
+		<authentication-provider>
+			<password-encoder hash="bcrypt" />
+			<jdbc-user-service data-source-ref="dataSource" 
+				authorities-by-username-query="select User.name, Role.name from User 
+												join User_Role on User.id = User_Role.users_id 
+												join Role on User_Role.roles_id = Role.id 
+												where User.name = ?"
+				users-by-username-query="select name, password, 1 from User where name = ?"/>
+			
+		</authentication-provider>
+	</authentication-manager>
+
+</beans:beans>
