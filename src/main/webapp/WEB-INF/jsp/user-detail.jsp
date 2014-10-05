@@ -19,7 +19,7 @@
 
 
 		<div class="body">
-			<h1>${user.name}</h1>
+			<h1><c:out value="${user.name}" /></h1>
 
 			<!-- Button trigger modal -->
 			<button class="btn btn-primary btn-lg" data-toggle="modal"
@@ -65,7 +65,7 @@
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs" role="tablist">
 				<c:forEach items="${user.blogs}" var="blog">
-					<li><a href="#blog_${blog.id}" role="tab" data-toggle="tab">${blog.name}</a></li>
+					<li><a href="#blog_${blog.id}" role="tab" data-toggle="tab"><c:out value="${blog.name}" /></a></li>
 				</c:forEach>
 			</ul>
 
@@ -73,10 +73,10 @@
 			<div class="tab-content">
 				<c:forEach items="${user.blogs}" var="blog">
 					<div class="tab-pane" id="blog_${blog.id}">
-						<h1>${blog.name}</h1>
+						<h1><c:out value="${blog.name}" /></h1>
 						<p>
 							<a href='<spring:url value="/blog/remove/${blog.id}" />'
-								class="btn btn-danger triggerRemove">Remove Blog</a> ${blog.url}
+								class="btn btn-danger triggerRemove">Remove Blog</a> <c:out value="${blog.url}" />
 						</p>
 						<table class="table table-bordered table-hover table-striped">
 							<tr>
@@ -85,8 +85,8 @@
 							</tr>
 							<c:forEach items="${blog.items}" var="item">
 								<tr>
-									<td>${item.title}</td>
-									<td>${item.link}</td>
+									<td><c:out value="${item.title}" /></td>
+									<td><c:out value="${item.link}" /></td>
 								</tr>
 							</c:forEach>
 						</table>
