@@ -2,9 +2,12 @@ package com.mnazareno.jba.controller;
 
 import java.security.Principal;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,7 +54,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/register", method=RequestMethod.POST)
-	public String doRegister(@ModelAttribute("user") User user) {
+	public String doRegister(@Valid @ModelAttribute("user") User user, BindingResult result) {
+		if (result.hasErrors()) {
+			return "register";
+		}
 		userService.save(user);
 		return "redirect:register?success=true";
 	}
@@ -64,7 +70,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/account", method=RequestMethod.POST)
-	public String doAddBlog(@ModelAttribute("blog") Blog blog, Principal principal) {
+	public String doAddBlog(Model model, @Valid @ModelAttribute("blog") Blog blog, BindingResult result, Principal principal) {
+		if (result.hasErrors()) {
+			return account(model, principal);
+		}
 		String name = principal.getName();
 		blogService.save(blog, name);
 		return "redirect:account";
