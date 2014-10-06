@@ -5,26 +5,13 @@
 	<tiles:putAttribute name="title" value="Java Blog Aggregator" />
 	<tiles:putAttribute name="body">
 
-		<script type="text/javascript">
-			$(function() {
-				$(".nav-tabs a:first").tab("show");
-				$(".triggerRemove").click(function(e) {
-					e.preventDefault();
-					$("#modalRemove .removeBtn").attr("href", $(this).attr("href"));
-					$("#modalRemove").modal();
-				})
-			});
-		</script>
-
-
-
 		<div class="body">
 			<!-- Button trigger modal -->
 			<button class="btn btn-primary btn-lg" data-toggle="modal"
 				data-target="#myModal">New Blog</button>
 
 			<!-- Modal -->
-			<form:form commandName="blog" cssClass="form-horizontal">
+			<form:form commandName="blog" cssClass="form-horizontal blogForm">
 				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 					aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
@@ -37,14 +24,14 @@
 							</div>
 							<div class="modal-body">
 								<div class="form-group">
-									<label for="name" class="col-sm-2 control-label">Name</label>
+									<label for="name" class="col-sm-2 control-label">Name:</label>
 									<div class="col-sm-10">
 										<form:input path="name" cssClass="form-control" />
 										<form:errors path="name" />
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="url" class="col-sm-2 control-label">URL</label>
+									<label for="url" class="col-sm-2 control-label">URL:</label>
 									<div class="col-sm-10">
 										<form:input path="url" cssClass="form-control" />
 										<form:errors path="url" />
@@ -117,7 +104,35 @@
 			</div>
 		</div>
 
-
+		<script type="text/javascript">
+			$(function() {
+				$(".nav-tabs a:first").tab("show");
+				$(".triggerRemove").click(function(e) {
+					e.preventDefault();
+					$("#modalRemove .removeBtn").attr("href", $(this).attr("href"));
+					$("#modalRemove").modal();
+				})
+				
+				$(".blogForm").validate({
+					highlight: function(e) {
+						$(e).closest(".form-group").removeClass("has-success").addClass("has-error")
+					},
+					unhighlight: function(e) {
+						$(e).closest(".form-group").removeClass("has-error").addClass("has-success")
+					},
+					rules: {
+						name: {
+							required: true,
+							minlength: 1
+						},
+						url: {
+							required: true,
+							url: true,
+						}
+					}
+				})
+			});
+		</script>
 
 	</tiles:putAttribute>
 </tiles:insertDefinition>
