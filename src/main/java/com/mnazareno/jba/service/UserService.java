@@ -48,7 +48,7 @@ public class UserService {
 		List<Blog> blogs = blogRepository.findByUser(user);
 		
 		for (Blog blog : blogs) {
-			List<Item> items = itemRepository.findByBlog(blog, new PageRequest(0, 2, Direction.DESC, "publishedDate"));
+			List<Item> items = itemRepository.findByBlog(blog, new PageRequest(0, 10, Direction.DESC, "publishedDate"));
 			blog.setItems(items);
 		}
 		
