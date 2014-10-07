@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
@@ -17,6 +18,7 @@ import org.hibernate.validator.constraints.Email;
 import com.mnazareno.jba.annotation.UniqueUsername;
 
 @Entity
+@Table(name="App_User")
 public class User {
 	
 	@Id

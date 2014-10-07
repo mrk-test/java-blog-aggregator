@@ -57,7 +57,6 @@
 							<li class="${pageName eq 'account' ? 'active' : ''}"><a href='<spring:url value="/account" />'>My Account</a></li>
 							<li><a href='<spring:url value="/logout" />'>Logout</a></li>
 						</security:authorize>
-						<li class="${pageName eq 'link' ? 'active' : ''}"><a href="#">Link</a></li>
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->

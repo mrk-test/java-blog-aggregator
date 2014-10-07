@@ -19,11 +19,11 @@
 		<authentication-provider>
 			<password-encoder hash="bcrypt" />
 			<jdbc-user-service data-source-ref="dataSource" 
-				authorities-by-username-query="select User.name, Role.name from User 
-												join User_Role on User.id = User_Role.users_id 
-												join Role on User_Role.roles_id = Role.id 
-												where User.name = ?"
-				users-by-username-query="select name, password, enabled from User where name = ?"/>
+				authorities-by-username-query="select App_User.name, Role.name from App_User 
+												join App_User_Role on App_User.id = App_User_Role.users_id 
+												join Role on App_User_Role.roles_id = Role.id 
+												where App_User.name = ?"
+				users-by-username-query="select name, password, enabled from App_User where name = ?"/>
 			
 		</authentication-provider>
 	</authentication-manager>
