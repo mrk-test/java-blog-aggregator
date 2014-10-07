@@ -64,46 +64,46 @@ public class InitDbService {
 		blog.setUser(userAdmin);
 		blogRepository.save(blog);
 		
-		Item item1 = new Item();
-		item1.setBlog(blog);
-		item1.setTitle("first");
-		item1.setLink("http://www.javavids.com");
-		item1.setPublishedDate(new Date());
-		itemRepository.save(item1);
-		
-		Item item2 = new Item();
-		item2.setBlog(blog);
-		item2.setTitle("second");
-		item2.setLink("http://www.javavids.com");
-		item2.setPublishedDate(new Date());
-		itemRepository.save(item2);
-		
-		Item item3 = new Item();
-		item3.setBlog(blog);
-		item3.setTitle("three");
-		item3.setLink("http://www.javavids.com");
-		item3.setPublishedDate(new Date());
-		itemRepository.save(item3);
-		
-		Item item4 = new Item();
-		item4.setBlog(blog);
-		item4.setTitle("four");
-		item4.setLink("http://www.javavids.com");
-		item4.setPublishedDate(new Date());
-		itemRepository.save(item4);
-		
-		Item item5 = new Item();
-		item5.setBlog(blog);
-		item5.setTitle("five");
-		item5.setLink("http://www.javavids.com");
-		item5.setPublishedDate(new Date());
-		itemRepository.save(item5);
-		
-		Item item6 = new Item();
-		item6.setBlog(blog);
-		item6.setTitle("six");
-		item6.setLink("http://www.javavids.com");
-		item6.setPublishedDate(new Date());
-		itemRepository.save(item6);
+//		Item item1 = new Item();
+//		item1.setBlog(blog);
+//		item1.setTitle("first");
+//		item1.setLink("http://www.javavids.com");
+//		item1.setPublishedDate(new Date());
+//		itemRepository.save(item1);
+//		
+//		Item item2 = new Item();
+//		item2.setBlog(blog);
+//		item2.setTitle("second");
+//		item2.setLink("http://www.javavids.com");
+//		item2.setPublishedDate(new Date());
+//		itemRepository.save(item2);
+//		
+//		Item item3 = new Item();
+//		item3.setBlog(blog);
+//		item3.setTitle("three");
+//		item3.setLink("http://www.javavids.com");
+//		item3.setPublishedDate(new Date());
+//		itemRepository.save(item3);
+//		
+//		Item item4 = new Item();
+//		item4.setBlog(blog);
+//		item4.setTitle("four");
+//		item4.setLink("http://www.javavids.com");
+//		item4.setPublishedDate(new Date());
+//		itemRepository.save(item4);
+//		
+//		Item item5 = new Item();
+//		item5.setBlog(blog);
+//		item5.setTitle("five");
+//		item5.setLink("http://www.javavids.com");
+//		item5.setPublishedDate(new Date());
+//		itemRepository.save(item5);
+//		
+//		Item item6 = new Item();
+//		item6.setBlog(blog);
+//		item6.setTitle("six");
+//		item6.setLink("http://www.javavids.com");
+//		item6.setPublishedDate(new Date());
+//		itemRepository.save(item6);
 	}
 }
